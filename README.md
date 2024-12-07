@@ -38,22 +38,22 @@ You can access the live app at [https://brain-storm-quiz-app.vercel.app/](https:
 ## Installation and Setup ⚙️
 Follow these steps to run the Quiz App locally:
     1. Clone the repository:
-       ```bash
+     
        git clone https://github.com/yourusername/quiz-app.git
        cd quiz-app
-       ```
+       
     2. Install dependencies:
-       ```bash
+       
        npm install
-       ```
+       
     3. Start the development server:
-       ```bash
+     
        npm start
-       ```
+       
     4. Open the app in your browser:
-       ```bash
+       
        http://localhost:3000
-       ```
+       
 
 ## Future Enhancements 🌟
     • User authentication for saving quiz history and scores.  
