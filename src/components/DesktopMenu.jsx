@@ -1,6 +1,10 @@
 import { Toolbar, Typography, Button } from "@mui/material"
+import { useNavigate } from "react-router-dom";
 
 const DesktopMenu = () => {
+  const navigate = useNavigate();
+
+
   return (
     <Toolbar>
       <Typography variant="h5" sx={{
@@ -10,13 +14,13 @@ const DesktopMenu = () => {
         BrainStorm🧠
       </Typography>
       <Typography sx={{ display: { xs: 'none', sm: 'flex' } }}>
-        <Button sx={{ color: "white" }}>Home</Button>
-        <Button sx={{ color: "white" }}>About</Button>
-        <Button sx={{ color: "white" }}>Log In</Button>
-        <Button sx={{ color: "white" }}>Sign Up</Button>
+        <Button sx={{ color: "white" }} onClick={() => navigate('/')}>Home</Button>
+        <Button sx={{ color: "white" }} onClick={ ()=> navigate('/about')}>About</Button>
+        <Button sx={{ color: "white"  }} onClick={ ()=> navigate('/login')}>Log In</Button>
+        <Button sx={{ color: "white" }} onClick={() => navigate('/signup')}> Sign Up</Button>
       </Typography>
     </Toolbar>
   )
 }
 
-export default DesktopMenu
+export default DesktopMenu;

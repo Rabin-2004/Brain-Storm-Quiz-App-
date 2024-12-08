@@ -8,6 +8,7 @@ export const useSearchContextState = () => {
   const [correctAnswer, setCorrectAnswer] = useState([]);
   const [seeAns, setSeeAns] = useState(false);
 
+
   return {
     questionNo,
     setQuestionNo,
@@ -20,6 +21,6 @@ export const useSearchContextState = () => {
     correctAnswer,
     setCorrectAnswer,
     seeAns,
-    setSeeAns
+    setSeeAns,
   };
 };
