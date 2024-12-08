@@ -33,7 +33,7 @@ Welcome to the Quiz App, a fun and interactive platform to test your knowledge a
     5. **Return Home**: Reset your preferences and start a new quiz anytime.
 
 ## Live Demo 🚀
-You can access the live app at [https://brain-storm-quiz-app.vercel.app/](https://brain-storm-quiz-app.vercel.app/).
+You can access the live app at [https://quiz-app-e02ac.web.app/](https://quiz-app-e02ac.web.app/).
 
 ## Installation and Setup ⚙️
 Follow these steps to run the Quiz App locally:
