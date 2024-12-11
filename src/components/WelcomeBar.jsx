@@ -1,11 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSearch } from "../context/SearchContext";
 import { Snackbar, Alert } from "@mui/material";
 
 const Welcomebar = () => {
 
 const {isLoggedIn, displayName} = useSearch();
-const [openSnackbar, setOpenSnackBar] = useState(true);
+const [openSnackbar, setOpenSnackBar] = useState(false);
+
+useEffect(()=>{
+  if (isLoggedIn && sessionStorage.getItem('welcomeShown')){
+    setOpenSnackBar(true);
+    sessionStorage.setItem('welcomeShown', 'true')
+  }
+}, [isLoggedIn])
 
 function handleClose(){
 setOpenSnackBar(t => !t)
@@ -14,7 +21,7 @@ setOpenSnackBar(t => !t)
   return (
     <>
     {
-        isLoggedIn && (
+        isLoggedIn && openSnackbar && (
             <Snackbar open={openSnackbar}
             autoHideDuration = {3000}
             onClose = {handleClose}
