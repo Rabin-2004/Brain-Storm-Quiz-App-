@@ -13,7 +13,6 @@ const SignUp = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
-  const {setDisplayName} = useSearch();
 
   const navigate = useNavigate();
 

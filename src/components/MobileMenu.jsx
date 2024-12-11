@@ -2,11 +2,14 @@ import { Drawer, IconButton, List, ListItem, ListItemText } from "@mui/material"
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSearch } from "../context/SearchContext";
+import LogOut from "./LogOut";
 
 const MobileMenu = () => {
 
     const [open, setOpen] = useState(false)
     const navigate = useNavigate();
+    const { isLoggedIn } = useSearch();
 
     function handleToggle() {
         setOpen(open => !open)
@@ -50,18 +53,31 @@ const MobileMenu = () => {
                     }}>
                         <ListItemText primary="About" />
                     </ListItem>
-                    <ListItem button onClick={() => {
-                        handleToggle();
-                        navigate('/login');
-                    }}>
-                        <ListItemText primary="Login" />
+                    {!isLoggedIn ? <>
+                        <ListItem button onClick={() => {
+                            handleToggle();
+                            navigate('/login');
+                        }}>
+                            <ListItemText primary="Login" />
+                        </ListItem>
+
+                        <ListItem button onClick={() => {
+                            handleToggle();
+                            navigate('/signup');
+                        }}>
+                            <ListItemText primary="SignUp" />
+                        </ListItem>
+                    </> : 
+                    <>
+                    <ListItem button onClick={() => handleToggle}>
+                        <LogOut />
                     </ListItem>
-                    <ListItem button onClick={() => {
-                        handleToggle();
-                        navigate('/signup');
-                    }}>
-                        <ListItemText primary="SignUp" />
+                    <ListItem button onClick={() => handleToggle}>
+                        Profile
                     </ListItem>
+                     </>}
+
+
                 </List>
             </Drawer>
         </>

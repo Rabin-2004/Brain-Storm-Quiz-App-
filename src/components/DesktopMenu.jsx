@@ -1,6 +1,7 @@
 import { Toolbar, Typography, Button } from "@mui/material"
 import { useNavigate } from "react-router-dom";
 import { useSearch } from "../context/SearchContext";
+import LogOut from "./LogOut";
 
 const DesktopMenu = () => {
   const navigate = useNavigate();
@@ -24,7 +25,7 @@ const DesktopMenu = () => {
         </> : 
         <>
         <Button sx={{ color: "white"  }}> Profile </Button>
-        <Button sx={{ color: "white"  }}> Log Out </Button>
+        <LogOut />
         </>
         }
         

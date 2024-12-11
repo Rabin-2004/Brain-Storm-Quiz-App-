@@ -7,11 +7,11 @@ export const useSearchContextState = () => {
   const [userAnswer, setUserAnswer] = useState([]);
   const [correctAnswer, setCorrectAnswer] = useState([]);
   const [seeAns, setSeeAns] = useState(false);
-  const [displayName, setDisplayName] =  useState(() => localStorage.getItem('displayName'));
- const [isLoggedIn, setIsLoggedIn] = useState(() => {
-  const storedIsLoggedIn = localStorage.getItem('isLoggedIn')
-  return storedIsLoggedIn === 'true'
- });
+  const [displayName, setDisplayName] = useState(() => localStorage.getItem('displayName'));
+  const [isLoggedIn, setIsLoggedIn] = useState(() => {
+    const storedIsLoggedIn = localStorage.getItem('isLoggedIn')
+    return storedIsLoggedIn === 'true'
+  });
 
   return {
     questionNo,

@@ -4,7 +4,7 @@ import { Box, Typography, Paper } from '@mui/material';
 
 const ResultCalculatioin = () => {
 
-  const { userAnswer, correctAnswer, setSeeAns } = useSearch();
+  const { userAnswer, correctAnswer} = useSearch();
 
   const score = userAnswer.reduce((acc, answer, index) => {
     if (answer === correctAnswer[index]) {
