@@ -1,9 +1,10 @@
 import { Toolbar, Typography, Button } from "@mui/material"
 import { useNavigate } from "react-router-dom";
+import { useSearch } from "../context/SearchContext";
 
 const DesktopMenu = () => {
   const navigate = useNavigate();
-
+  const {isLoggedIn} = useSearch();
 
   return (
     <Toolbar>
@@ -16,8 +17,18 @@ const DesktopMenu = () => {
       <Typography sx={{ display: { xs: 'none', sm: 'flex' } }}>
         <Button sx={{ color: "white" }} onClick={() => navigate('/')}>Home</Button>
         <Button sx={{ color: "white" }} onClick={ ()=> navigate('/about')}>About</Button>
+        
+        {!isLoggedIn ? <> 
         <Button sx={{ color: "white"  }} onClick={ ()=> navigate('/login')}>Log In</Button>
         <Button sx={{ color: "white" }} onClick={() => navigate('/signup')}> Sign Up</Button>
+        </> : 
+        <>
+        <Button sx={{ color: "white"  }}> Profile </Button>
+        <Button sx={{ color: "white"  }}> Log Out </Button>
+        </>
+        }
+        
+
       </Typography>
     </Toolbar>
   )

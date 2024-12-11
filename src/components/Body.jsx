@@ -1,9 +1,13 @@
-import { Box } from "@mui/material"
+import { Box} from "@mui/material"
+import Welcomebar from "./WelcomeBar"
 import Form from "./Form"
-
+import { useSearch } from "../context/SearchContext"
 
 
 const Body = () => {
+
+  const {isLoggedIn, displayName} = useSearch()
+
   return (
     <Box sx={{
       bgcolor: "#383e4e",
@@ -15,6 +19,7 @@ const Body = () => {
       justifyContent: "center",
       alignItems: "center"
     }}>
+      <Welcomebar />
       <Form />
     </Box>
   )

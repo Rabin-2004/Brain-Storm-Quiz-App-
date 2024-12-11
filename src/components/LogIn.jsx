@@ -5,6 +5,7 @@ import { useState } from "react"
 import { signInWithEmailAndPassword } from "firebase/auth"
 import { auth } from '../firebase.js'
 import { useNavigate } from "react-router-dom" 
+import { useSearch } from "../context/SearchContext.jsx"
 
 const LogIn = () => {
   const [showPass, setShowPass] = useState(false);
@@ -13,6 +14,7 @@ const LogIn = () => {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const navigate = useNavigate(); 
+  const {setIsLoggedIn, setDisplayName} = useSearch();
 
   function handleShowPass() {
     setShowPass(e => !e);
@@ -25,9 +27,15 @@ const LogIn = () => {
       
       
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const displayName = email.split('@')[0];
+      setDisplayName(displayName);
+      localStorage.setItem('displayName', displayName);
+
       setSuccess(`Welcome back ${userCredential.user.email}!`);
       
-      
+      setIsLoggedIn(true);
+      localStorage.setItem('isLoggedIn', 'true')
+
       navigate('/'); 
     } catch (error) {
       setError(error.message); 

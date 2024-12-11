@@ -4,6 +4,8 @@ import { createUserWithEmailAndPassword } from "firebase/auth"
 import { auth } from '../firebase.js'
 import { useState } from "react"
 import MainMenu from "./MainMenu"
+import { useSearch } from "../context/SearchContext.jsx"
+import { useNavigate } from "react-router-dom"
 
 const SignUp = () => {
   const [showPass, setShowPass] = useState(false);
@@ -11,6 +13,9 @@ const SignUp = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const {setDisplayName} = useSearch();
+
+  const navigate = useNavigate();
 
 
   function handleShowPass() {
@@ -43,7 +48,11 @@ const SignUp = () => {
       setError('');
       setSuccess('');
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+
       setSuccess(`Welcome ${userCredential.user.email}!`);
+
+      navigate('/loginquery?status=success')
+
     } catch (error) {
       setError(error.message);
     }
