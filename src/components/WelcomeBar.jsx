@@ -21,7 +21,7 @@ setOpenSnackBar(t => !t)
   return (
     <>
     {
-        isLoggedIn ? (
+        isLoggedIn &&
           openSnackbar && (
             <Snackbar open={openSnackbar}
             autoHideDuration = {3000}
@@ -33,22 +33,7 @@ setOpenSnackBar(t => !t)
                 </Alert>
             </Snackbar>
         )
-      )
-      :
-      (
-        openSnackbar && (
-          <Snackbar open={openSnackbar}
-          autoHideDuration={3000}
-          onClose={handleClose}
-          anchorOrigin={{vertical: 'top', horizontal: 'center'}}
-          >
-            <Alert onClose={handleClose} severity="success" sx={{width: '100%'}} >
-              Logged Out!!
-            </Alert>
-          </Snackbar>
-        )
-      )
-    }
+      }
     </>
   )
 }

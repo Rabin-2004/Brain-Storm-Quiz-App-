@@ -6,8 +6,6 @@ import { useSearch } from "../context/SearchContext"
 
 const Body = () => {
 
-  const {isLoggedIn, displayName} = useSearch()
-
   return (
     <Box sx={{
       bgcolor: "#383e4e",
